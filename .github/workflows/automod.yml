@@ -24,6 +24,11 @@ jobs:
     permissions:
       issues: write
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+      with:
+        egress-policy: audit
+
     - name: Comment filter
       uses: DecimalTurn/Comment-Filter@9c95bdb06ae1dd6b8185d58f52a07a2a71e19d94 # v0.2.2
       with:
